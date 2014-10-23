@@ -1,0 +1,28 @@
+div.button {
+	display: inline-block;
+	z-index: 1;
+	float: left;
+}
+
+div#but input {
+	height: 25px;
+	width: 25px;
+	margin: 3px;
+}
+div.vol{
+	display: inline-block;
+	float: left;
+	z-index: 2;
+}
+
+div.vol input{
+	height: 25px;
+	width: 25px;
+	margin: 3px;
+}
+
+div.vol4 input {
+	float: right;
+}
+
+
