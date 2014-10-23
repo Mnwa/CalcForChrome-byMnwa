@@ -6,24 +6,22 @@ function check(text, val){
 		}
 	}
 	if(num.length == 0){
-		res.push(b);
+		num.push(0);
+		res.push(b.substring(Math.max.apply(Math, num),  b.length));
 	}
 	else{
 		res.push(b.substring(Math.max.apply(Math, num),  b.length));
 		}
 	num.length=0;
 	for(var i = 0; i!=e.length+1; i++){
-		if((e.substring(i-1,i) == '+' || e.substring(i-1,i) == '-' || e.substring(i-1,i) == '*' || e.substring(i-1,i) == '/') && i-1!=0 && i-1!=-1){
+		if(e.substring(i-1,i) == '+' || e.substring(i-1,i) == '-' || e.substring(i-1,i) == '*' || e.substring(i-1,i) == '/' ){
 			num.push(i-1);
 		}
 	}
-	
 	if(num.length == 0){
-		res.push(e);
+		num.push(e.length);
 	}
-	else{
-		res.push(e.substring(0, Math.min.apply(Math, num)));
-	}
+	res.push(e.substring(0, Math.min.apply(Math, num)));
 	return res
 }
 
@@ -39,13 +37,13 @@ function calc(text){
 		num = text.indexOf('^', num+1);
 	}
 	num=0;
-	num = text.indexOf('√');
+	num = text.indexOf('&');
 	while(num!=-1){
 		if(num != -1){
 			arr = check(text, num); 
-			text = text.replace('√'+arr[1], Math.sqrt(arr[1]));
+			text = text.replace('&'+arr[1], Math.sqrt(arr[1]));
 		}
-		num = text.indexOf('√', num+1);
+		num = text.indexOf('&', num+1);
 	}
 	num=0;
 	num = text.indexOf('*');
@@ -88,32 +86,14 @@ function calc(text){
 
 function main(text){
 	var num = 0, io = 0;
-	text = text.replace(/π/g,Math.PI);
-	text = text.replace(/e/g,Math.E);
-	num = text.indexOf('sin(');																					//sin	
+	num = text.indexOf(')');
 	while(num!=-1){
-		text = text.replace(/sin\([-0-9.+\/*√^]+\)/, Math.sin(calc(text.substring(num+4, text.indexOf(")",num)))));	
+		io = text.indexOf('(');
+		while(io < num && text.indexOf('(', io+1) != -1){
+			io = text.indexOf('(', io+1);
+		}
+		text = text.replace(text.substring(io, num+1), calc(text.substring(io+1, num)));
 		num = text.indexOf(')', num+1);
-	}
-	num = text.indexOf('cos(');																					//cos
-	while(num!=-1){
-		text = text.replace(/cos\([-0-9.+\/*√^]+\)/, Math.cos(calc(text.substring(num+4, text.indexOf(")",num)))));
-		num = text.indexOf(')', num+1);
-	}
-	num = text.indexOf('ctg(');																					//ctan
-	while(num!=-1){
-		text = text.replace(/ctg\([-0-9.+\/*√^]+\)/, 1/Math.tan(calc(text.substring(num+5, text.indexOf(")",num)))));
-		num = text.indexOf(')', num+1);
-	}
-	num = text.indexOf('tg(');																					//tan
-	while(num!=-1){
-		text = text.replace(/tg\([-0-9.+\/*√^]+\)/, Math.tan(calc(text.substring(num+4, text.indexOf(")",num)))));
-		num = text.indexOf(')', num+1);
-	}
-	num = text.indexOf('(');																					//(..)
-	while(num!=-1){
-		text = text.replace(/\([-0-9.+\/*√^]+\)/, calc(text.substring(num+1, text.indexOf(")",num))));
-		num = text.indexOf('(', num+1);
 	}
 	return calc(text)
 }
