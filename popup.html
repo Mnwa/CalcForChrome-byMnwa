@@ -2,50 +2,61 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" href="css/metro-bootstrap.min.css">
 		<script src="/js/jquery.js"></script>
+		<script src="js/metro.min.js"></script>
 		<script src="/js/calcup.js"></script>
 		<script src="/js/main.js"></script>
 	</head>
-	<body>
-		<input class="textbox" type="text" size="30" value="">
-		<div id="but">
-			<div id="1">
-				<input type="submit" value="1">
-				<input type="submit" value="2">
-				<input type="submit" value="3">
+	<body class="metro">
+	<div class="input-control text">
+		<input type="text" value="" class="textbox" placeholder="MCalc"/>
+	</div>
+		<div class="toolbar no-spaces">
+			<div>
+				<button id="but" class="primary" value="1">1</button>
+				<button id="but" class="primary" value="2">2</button>
+				<button id="but" class="primary" value="3">3</button>
+				<button id="bck" class="primary" value="Bcs">Bcs</button>
+			</div><div>
+				<button id="but" class="primary" value="4">4</button>
+				<button id="but" class="primary" value="5">5</button>
+				<button id="but" class="primary" value="6">6</button>
+				<button id="c" class="primary" value="C">C</button>
+			</div><div>
+				<button id="but" class="primary" value="7">7</button>
+				<button id="but" class="primary" value="8">8</button>
+				<button id="but" class="primary" value="9">9</button>
+				<button id="sum" class="primary" value="+">+</button>
+				</div><div>
+				<button id="but" class="primary" value="0">0</button>
+				<button id="but" class="primary" value=".">.</button>
+				<button id="add" class="primary" value="=">=</button>
+				<button id="sum" class="primary" value="-">-</button>
 				</div>
-			<div id="2">				
-				<input type="submit" value="4">
-				<input type="submit" value="5">
-				<input type="submit" value="6"></div>
-			<div id="3">
-				<input type="submit" value="7">
-				<input type="submit" value="8">
-				<input type="submit" value="9">
-				<input type="submit" value="0">
-				<input type="submit" value=".">
-			</div>
 		</div>
-		<div class="vol">
-				<input type="submit" id="sum" value="+">
-				<input type="submit" id="sum" value="-">
-				<input type="submit" id="sum" value="*">
-				<input type="submit" id="sum" value="/">
-				<input type="submit" id="sum" value="^">
-				<input type="submit" id="sum" value="^2">
-				<input type="submit" id="sum" value="√">
-				<input type="submit" id="sum" value="sin(">
-				<input type="submit" id="sum" value="cos(">
-				<input type="submit" id="sum" value="tg(">
-				<input type="submit" id="sum" value="ctg(">
-				<input type="submit" id="sum" value="(">
-				<input type="submit" id="sum" value=")">
-				<input type="submit" id="sum" value="π">
-				<input type="submit" id="sum" value="e">
-				<input type="submit" id="bck" value="Bcs">
-				<input type="submit" id="c" value="C">
-				<input type="submit" id="add" value="=">
+		<div class="toolbar no-spaces">
+			<div>
+				<button id="sum" class="primary" value="sin(">sin(</button>
+				<button id="sum" class="primary" value="cos(">cos(</button>
+				<button id="sum" class="primary" value="^2">^2</button>
+				<button id="sum" class="primary" value="*">*</button>
+				</div><div>
+				<button id="sum" class="primary" value="tg(">tg(</button>
+				<button id="sum" class="primary" value="ctg(">ctg(</button>
+				<button id="sum" class="primary" value="^">^</button>			
+				<button id="sum" class="primary" value="/">/</button>
+				</div><div>
+				<button id="sum" class="primary" id="sum" value="√">√</button>
+				<button id="sum" class="primary" id="sum" value="(">(</button>
+				<button id="sum" class="primary" value=")">)</button>
+				<button id="sum" class="primary" value="°">°</button>
+				</div><div>
+				<button id="sum" class="primary" value="π">π</button>
+				<button id="sum" class="primary" value="e">e</button>
+				<button id="sum" class="primary" value="lg(">lg(</button>
+				<button id="sum" class="primary" value="ln(">ln(</button>
+				</div>
 		</div>
 	</body>
 </html>
