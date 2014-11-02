@@ -1,23 +1,29 @@
-	$(document).ready(function(){
-		$('button').width(30);
-		$('html').width(200);
-		$('html').height(300);
-		$('button').height(30);
-		$('button#but').click(function() {											//Input id=but
-			$('.textbox').val($('.textbox').val() + this.value.toString());
-		})
-		
-		$('button#sum').click(function() {										//Input id=sum
-			$('.textbox').val($('.textbox').val() + this.value.toString());
-		})
-		$('button#add').click(function() {										//Enter
-			$('.textbox').val(main($('.textbox').val()));
-		})
-		$('button#bck').click(function() {										//Backspace
-			$('.textbox').val($('.textbox').val().slice(0,-1));
-		})
-		$('button#c').click(function() {											//Clean
-			$('.textbox').val('');
-		})
-	});
+$(document).ready(function() {
 
+    var txtBox = $('.textbox');
+
+    $('button').width(30).height(30);
+
+    $('html').width(200).height(300);
+
+    $('.but').click(function() { //Input id=but
+        txtBox.val(txtBox.val() + this.value.toString());
+    });
+
+    $('.sum').click(function() { //Input id=sum
+        txtBox.val(txtBox.val() + this.value.toString());
+    });
+
+    $('.add').click(function() { //Enter
+        txtBox.val(main(txtBox.val()));
+    });
+
+    $('.bck').click(function() { //Backspace
+        txtBox.val(txtBox.val().slice(0, -1));
+    });
+
+    $('.c').click(function() { //Clean
+        txtBox.val('');
+    });
+
+});

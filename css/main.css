@@ -1,15 +1,14 @@
-div#but input {
-	height: 25px;
-	width: 25px;
-	margin: 3px;
+.but input
+{
+    height: 25px;
+    width: 25px;
+    margin: 3px;
 }
 
-
-div.vol input{
-	height: 25px;
-	width: 40px;
-	margin: 3px;
+.vol input
+{
+    height: 25px;
+    width: 40px;
+    margin: 3px;
 }
-
-
 
