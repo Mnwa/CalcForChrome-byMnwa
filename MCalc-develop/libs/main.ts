@@ -4,10 +4,13 @@ $(document).ready(function () {
     let historyArray: Array<string> = `${localStorage["MCalcHistory"]}`.split(",") || new Array();
     $.each(historyArray, function (index, value) {
         if(value){
-            $('table tbody').append(`<tr><td><strong>${index + 1}.</strong> ${value}</td></tr>`);
+            $('table tbody').append(`<tr><td><strong>${historyArray.indexOf(value) + 1}.</strong> ${value}</td></tr>`);
         }
         else{
-            historyArray.slice(index,index);
+            let removeIt = historyArray.indexOf(value);
+            if (removeIt != -1){
+                historyArray.slice(removeIt, 1);
+            }
         }
     });
     $('button#sHistory').click(function () {
