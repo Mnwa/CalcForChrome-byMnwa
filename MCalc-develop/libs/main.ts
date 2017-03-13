@@ -44,4 +44,16 @@ $(document).ready(function () {
     $('button#c').click(function () {											//Clean
         $('.textbox').val('');
     });
+    $(document).keypress(function(e) {
+        if(e.which == 13) {
+            if ($('.textbox').val()) {
+                let addToHistory: string = $('.textbox').val();
+                $('.textbox').val(Calculate($('.textbox').val()));
+                addToHistory = `${addToHistory} = ${$('.textbox').val()}`;
+                historyArray.push(addToHistory);
+                $('table tbody').append(`<tr><td><strong>${historyArray.length}.</strong> ${addToHistory}</td></tr>`);
+                localStorage["MCalcHistory"] = historyArray.join();
+            }
+        }
+    });
 });

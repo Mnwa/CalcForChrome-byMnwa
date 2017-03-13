@@ -16,7 +16,7 @@ var input = './MCalc-develop';
 gulp.task("typescript", function () {       
     var tsProject = ts.createProject("./tsconfig.json");
     return gulp.src([`${input}/libs/**/*.ts`, `!${output}/**`], {base: input})
-        .pipe(ts(tsProject))
+        .pipe(ts(tsProject()))
         .pipe(uglify())                         //Comment out for debug
         .pipe(gulp.dest(output));
 });
